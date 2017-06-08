@@ -8,15 +8,46 @@
 	<link rel="stylesheet" type="text/css" href="../public/jquery-easyui-1.5.2/demo.css">
 	<script type="text/javascript" src="../public/jquery-easyui-1.5.2/jquery.min.js"></script>
 	<script type="text/javascript" src="../public/jquery-easyui-1.5.2/jquery.easyui.min.js"></script>
+    <script type="text/javascript" src="../public/jquery-easyui-1.5.2/locale/easyui-lang-zh_CN.js"></script>
+	<script type="text/javascript" src="index.js"></script>
 </head>
 <body class="easyui-layout">
-	<div data-options="region:'north',border:false" style="height:60px;background:#B3DFDA;padding:10px">标题</div>
-	<div data-options="region:'west',split:true,title:'导航栏'" style="width:200px;padding:10px;">
+	<div data-options="region:'north',border:false" style="height:60px;padding:10px;background-color:#06C;">
+    	<h2>管理系统</h2>
+    </div>
+	<div data-options="region:'west',split:true,title:'导航栏'" style="width:200px;">
 	
-	菜单
+	 <div id="aa" class="easyui-accordion" data-options="fit:true,border:false">
+    <div title="基本信息管理" data-options="iconCls:'icon-sum',selected:true" style="overflow:auto;">
+      <ul id="nav" class="easyui-tree">
+        <li><span><a href="javascript:void(0)" onClick="addTab('信息管理','home.html','icon-back')">信息管理</a></span></li>
+
+        <li><span><a href="javascript:void(0)" onClick="addTab('档案管理','/admin.php?s=/Home/Stage/index.html','icon-back')">档案管理</a></span></li>
+        <li><span><a href="javascript:void(0)" onClick="addTab('认证管理','/admin.php?s=/Home/Auth/index.html','icon-back')">认证管理</a></span></li>
+      </ul>
+    </div>
+    <div title="系统管理" data-options="iconCls:'icon-lock'">
+      <ul id="tt" class="easyui-tree">
+        <li><span><a href="javascript:void(0)" onClick="addTab('用户管理','/admin.php?s=/Home/Compos/index.html','icon-back')">用户管理</a></span></li>
+        <li><span><a href="javascript:void(0)" onClick="addTab('系统信息','/admin.php?s=/Home/Medication/index.html','icon-back')">系统信息</a></span></li>
+      </ul>
+    </div>
+</div>
 	
 	</div>
-	<div data-options="region:'south',border:false" style="height:50px;background:#A9FACD;padding:10px;">XXXX有限公司</div>
-	<div data-options="region:'center',title:'Center'"></div>
+	<div data-options="region:'south',border:false" style="height:50px;padding:10px;" class="">
+    	 <div style="padding:5px; text-align:center;"> 技术支持：xxxxx科技有限公司   &nbsp;&nbsp;&nbsp;   服务电话:88888888 &nbsp;&nbsp;&nbsp; 网址:<a href="http://www.baidu.com" target="_blank">www.xxxx.cn</a></div>
+    </div>
+	<div data-options="region:'center'">
+    	<div id="admin-tabs" class="easyui-tabs" data-options="fit:true,border:false,plain:false">
+			<div title="首页" data-options="iconCls:'icon-help'">
+				
+			</div>
+		</div>
+    </div>
+    
+
+
+    
 </body>
 </html>
