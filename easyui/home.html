@@ -1,0 +1,179 @@
+<table id="dg"></table>
+<div id="toolbar" style="padding:5px;">
+    <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-add" plain="true" onClick="home.add()">添加</a>
+    <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-edit" plain="true" onClick="home.edit()">编辑</a>
+    <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-remove" plain="true" onClick="home.del()">删除</a>
+</div>
+
+<script type="text/javascript">
+$(function(){
+	$('#dg').datagrid({
+		fit : true,
+		//url : 'content.json',
+		url : 'home/datagrid_data.json',
+        fit: true,
+        showHeader: true,
+        toolbar: '#toolbar',
+        pagination: true,
+        singleSelect: true,
+		nowrap:true,
+		rownumbers:true,
+		fitColumns:true,
+        pageSize: 5,
+        pageList: [2, 5, 10, 15, 20, 25, 30, 40, 50],
+		onDblClickRow:function(rowIndex, rowData){
+			home.edit();
+			},
+		columns : [[
+			{
+				field : 'user',
+				title : '帐号',
+				sortable : true,
+				width : 100,
+			},
+			{
+				field : 'email',
+				title : '邮件',
+				sortable : true,
+				width : 100,
+			},
+			{
+				field : 'regtime',
+				title : '注册时间',
+				sortable : true,
+				width : 100,
+			},
+		]]
+	});
+        });
+		
+		
+var home={};
+	home.add=function(){
+	     $('<div></div>').dialog({
+          id: 'newDialog',
+          title: '窗口',
+          width: 700,
+          height: 600,
+		  //bodyCls:'background-color: #E0ECFF;',
+          modal: true,
+          cache: false,
+          href: 'home/form.html',//打开的表单页面
+          onClose: function() {
+            $(this).dialog('destroy');
+          },
+          iconCls: 'icon-edit',
+          toolbar: [{
+            text: '新增',
+            size: 'large',
+            iconAlign: 'top',
+            iconCls: 'icon-large-picture',
+            handler: function() {
+              alert('add')
+            }
+          }, '-',
+          {
+            text: '保存',
+            size: 'large',
+            iconAlign: 'top',
+            iconCls: 'icon-large-clipart',
+            handler: function() {
+              alert('save')
+            }
+          }, {
+            text: '删除',
+            size: 'large',
+            iconAlign: 'top',
+            iconCls: 'icon-large-shapes',
+            handler: function() {
+              alert('del')
+            }
+          }
+
+          ],
+          buttons: [{
+            text: '保存',
+            iconCls: 'icon-ok',
+            handler: function() {
+              submit();
+            }
+          }, {
+            text: '关闭',
+            iconCls: 'icon-cancel',
+            handler: function() {
+              $("#newDialog").dialog('destroy');
+            }
+          }]
+        })
+
+      };
+
+	home.edit=function(){
+		 var row = $('#dg').datagrid('getSelected');
+		$('<div></div>').dialog({
+          id: 'newDialog',
+          title: '窗口',
+          width: 700,
+          height: 600,
+		  //bodyCls:'background-color: #E0ECFF;',
+          modal: true,
+          cache: false,
+          href: 'home/form.html',//打开的表单页面
+		  onLoad:function(){
+			  $('#form').form('load', row);
+		  },
+          onClose: function() {
+            $(this).dialog('destroy');
+          },
+          iconCls: 'icon-edit',
+          toolbar: [{
+            text: '新增',
+            size: 'large',
+            iconAlign: 'top',
+            iconCls: 'icon-large-picture',
+            handler: function() {
+              alert('add')
+            }
+          }, '-',
+          {
+            text: '保存',
+            size: 'large',
+            iconAlign: 'top',
+            iconCls: 'icon-large-clipart',
+            handler: function() {
+              alert('save')
+            }
+          }, {
+            text: '删除',
+            size: 'large',
+            iconAlign: 'top',
+            iconCls: 'icon-large-shapes',
+            handler: function() {
+              alert('del')
+            }
+          }
+
+          ],
+          buttons: [{
+            text: '保存',
+            iconCls: 'icon-ok',
+            handler: function() {
+               submit();
+            }
+          }, {
+            text: '关闭',
+            iconCls: 'icon-cancel',
+            handler: function() {
+              $("#newDialog").dialog('destroy');
+            }
+          }]
+        })
+		
+
+		}
+
+	home.del=function(){
+		alert('删除');
+		}	
+	
+</script>

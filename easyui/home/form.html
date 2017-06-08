@@ -1,0 +1,89 @@
+<script type="text/javascript" src="../../public/jquery-easyui-1.5.2/TextEditor/jquery.texteditor.js"></script>
+<link rel="stylesheet" type="text/css" href="../../public/jquery-easyui-1.5.2/TextEditor/texteditor.css">
+<style>
+#form-table {
+	border-collapse: collapse;  /* 让边框合并 */
+	border: 0px solid #95B8E7; /*边框0个像素  */
+	/*background-color: #E0ECFF;*/
+	width: 100%;
+}
+
+#form-table td {
+	
+	border-bottom:1px dotted #95B8E7;
+	font-size: 12px;
+}
+
+#form-table input{
+	width:200px;
+	}
+#back{
+	background-color: #E0ECFF;
+	}
+</style>
+
+<form id="form" method="post" enctype="application/json">
+	
+  <table id="form-table" cellpadding="10">
+    <tr>
+      <td align="right">姓名:</td>
+      <td><input class="easyui-textbox" name="user" data-options="required:true" /></td>
+    </tr>
+    <tr>
+      <td align="right">邮箱:</td>
+      <td><input class="easyui-textbox" name="email" /></td>
+    </tr>
+    <tr>
+      <td align="right">是否:</td>
+      <td><input class="easyui-switchbutton" checked></td>
+    </tr>
+    <tr>
+      <td align="right">密码:</td>
+      <td><input class="easyui-passwordbox" prompt="Password" iconWidth="28" ></td>
+    </tr>
+    <tr>
+      <td align="right">上传文件:</td>
+      <td><input class="easyui-filebox" name="file" data-options="prompt:'Choose another file...'"></td>
+    </tr>
+    <tr>
+      <td align="right">选择地区:</td>
+      <td>
+        <select class="easyui-combobox" name="state">
+                <option value="AL">Alabama</option>
+                <option value="AK">Alaska</option>
+                <option value="AZ">Arizona</option>
+                <option value="AR">Arkansas</option>
+                <option value="CA">California</option>
+        </select>
+      </td>
+    </tr>
+    <tr>
+      <td align="right" valign="top">详细资料:</td>
+      <td><input class="easyui-textbox" name="text" multiline="true" data-options="prompt:'Choose another file...'" style="height:60px"></td>
+    </tr>
+    <tr>
+      <td align="right">金额:</td>
+      <td>
+       <input class="easyui-numberspinner" value="3000" name="money" data-options="min:1000,max:6000,increment:100,prefix:'$'" >
+     
+		</td>
+    </tr>
+    <tr>
+      <td align="right" valign="top">资料:</td>
+      <td>
+       <div class="easyui-texteditor" title="资料" style="width:500px;height:300px;padding:20px">
+    <h3 style="text-align:center">TextEditor</h3>
+    <p style="text-align:center">TextEditor is a lightweight html5 editor based on EasyUI. It is completely customizable to fit your needs.</p>
+</div>
+     
+		</td>
+    </tr>
+  </table>
+	
+</form>
+
+<script>
+function submit(){
+	alert('保存');
+	}
+</script>
